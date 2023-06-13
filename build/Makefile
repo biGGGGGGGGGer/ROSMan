@@ -1312,6 +1312,32 @@ bond_generate_messages_lisp/fast:
 .PHONY : bond_generate_messages_lisp/fast
 
 #=============================================================================
+# Target rules for targets named rplidarNodeClient
+
+# Build rule for target.
+rplidarNodeClient: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rplidarNodeClient
+.PHONY : rplidarNodeClient
+
+# fast build rule for target.
+rplidarNodeClient/fast:
+	$(MAKE) -f rplidar_ros/CMakeFiles/rplidarNodeClient.dir/build.make rplidar_ros/CMakeFiles/rplidarNodeClient.dir/build
+.PHONY : rplidarNodeClient/fast
+
+#=============================================================================
+# Target rules for targets named rplidarNode
+
+# Build rule for target.
+rplidarNode: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rplidarNode
+.PHONY : rplidarNode
+
+# fast build rule for target.
+rplidarNode/fast:
+	$(MAKE) -f rplidar_ros/CMakeFiles/rplidarNode.dir/build.make rplidar_ros/CMakeFiles/rplidarNode.dir/build
+.PHONY : rplidarNode/fast
+
+#=============================================================================
 # Target rules for targets named list_devices_node
 
 # Build rule for target.
@@ -1971,6 +1997,8 @@ help:
 	@echo "... bond_generate_messages_py"
 	@echo "... darknet_ros_lib"
 	@echo "... bond_generate_messages_lisp"
+	@echo "... rplidarNodeClient"
+	@echo "... rplidarNode"
 	@echo "... list_devices_node"
 	@echo "... astra_camera"
 	@echo "... astra_camera_node"
