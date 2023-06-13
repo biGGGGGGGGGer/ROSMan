@@ -49,9 +49,9 @@ void BASIC_TIM_IRQHandler(void)
 {
 	if(TIM_GetITStatus( BASIC_TIM, TIM_IT_Update)!= RESET) 
 	{	
+		TIM_ClearITPendingBit(BASIC_TIM , TIM_IT_Update);
 		OLED_Refresh();            // 更新OLED。
 		pack_send_data(3);         // 串口发送数据
-		TIM_ClearITPendingBit(BASIC_TIM , TIM_IT_Update);
 	}
 }
 

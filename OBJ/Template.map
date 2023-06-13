@@ -15,13 +15,13 @@ Section Cross References
     main.o(i.judge_Dir) refers to main.o(.data) for PS2_KEY
     main.o(i.main) refers to delay_1.o(i.delay_init) for delay_init
     main.o(i.main) refers to bsp_mecanum.o(i.MECANUM_Init) for MECANUM_Init
-    main.o(i.main) refers to bsp_resetmcu.o(i.TIM_Mode_Config) for TIM_Mode_Config
-    main.o(i.main) refers to bsp_tim4.o(i.TIM_PWMOUTPUT_Config) for TIM_PWMOUTPUT_Config
+    main.o(i.main) refers to bsp_tim4_1.o(i.TIM_PWMOUTPUT_Config) for TIM_PWMOUTPUT_Config
     main.o(i.main) refers to bsp_exti.o(i.EXTI_MPU6050_Config) for EXTI_MPU6050_Config
     main.o(i.main) refers to usart.o(i.Debug_USART_Config) for Debug_USART_Config
     main.o(i.main) refers to oled.o(i.OLED_Init) for OLED_Init
     main.o(i.main) refers to pstwo.o(i.PS2_Init) for PS2_Init
     main.o(i.main) refers to pstwo.o(i.PS2_SetInit) for PS2_SetInit
+    main.o(i.main) refers to bsp_resetmcu.o(i.TIM_Mode_Config) for TIM_Mode_Config
     main.o(i.main) refers to mpu6050.o(i.MPU_Init) for MPU_Init
     main.o(i.main) refers to printfa.o(i.__0printf) for __2printf
     main.o(i.main) refers to inv_mpu.o(i.mpu_dmp_init) for mpu_dmp_init
@@ -44,7 +44,7 @@ Section Cross References
     startup_stm32f40_41xxx.o(RESET) refers to stm32f4xx_it.o(i.PendSV_Handler) for PendSV_Handler
     startup_stm32f40_41xxx.o(RESET) refers to stm32f4xx_it.o(i.SysTick_Handler) for SysTick_Handler
     startup_stm32f40_41xxx.o(RESET) refers to bsp_exti.o(i.EXTI9_5_IRQHandler) for EXTI9_5_IRQHandler
-    startup_stm32f40_41xxx.o(RESET) refers to bsp_tim4.o(i.TIM4_IRQHandler) for TIM4_IRQHandler
+    startup_stm32f40_41xxx.o(RESET) refers to bsp_tim4_1.o(i.TIM4_IRQHandler) for TIM4_IRQHandler
     startup_stm32f40_41xxx.o(RESET) refers to bsp_resetmcu.o(i.TIM6_DAC_IRQHandler) for TIM6_DAC_IRQHandler
     startup_stm32f40_41xxx.o(.text) refers to system_stm32f4xx.o(i.SystemInit) for SystemInit
     startup_stm32f40_41xxx.o(.text) refers to entry.o(.ARM.Collect$$$$00000000) for __main
@@ -281,36 +281,36 @@ Section Cross References
     usart.o(i.pack_send_data) refers to usart.o(i.sendData) for sendData
     usart.o(i.pack_send_data) refers to main.o(.data) for pitch
     usart.o(i.sendData) refers to usart.o(i.Usart_SendByte) for Usart_SendByte
-    bsp_tim4.o(i.TIM4_IRQHandler) refers to stm32f4xx_tim.o(i.TIM_GetITStatus) for TIM_GetITStatus
-    bsp_tim4.o(i.TIM4_IRQHandler) refers to stm32f4xx_tim.o(i.TIM_ClearITPendingBit) for TIM_ClearITPendingBit
-    bsp_tim4.o(i.TIM4_IRQHandler) refers to stm32f4xx_tim.o(i.TIM_GetCapture1) for TIM_GetCapture1
-    bsp_tim4.o(i.TIM4_IRQHandler) refers to stm32f4xx_tim.o(i.TIM_SetCompare1) for TIM_SetCompare1
-    bsp_tim4.o(i.TIM4_IRQHandler) refers to stm32f4xx_tim.o(i.TIM_GetCapture2) for TIM_GetCapture2
-    bsp_tim4.o(i.TIM4_IRQHandler) refers to stm32f4xx_tim.o(i.TIM_SetCompare2) for TIM_SetCompare2
-    bsp_tim4.o(i.TIM4_IRQHandler) refers to stm32f4xx_tim.o(i.TIM_GetCapture3) for TIM_GetCapture3
-    bsp_tim4.o(i.TIM4_IRQHandler) refers to stm32f4xx_tim.o(i.TIM_SetCompare3) for TIM_SetCompare3
-    bsp_tim4.o(i.TIM4_IRQHandler) refers to stm32f4xx_tim.o(i.TIM_GetCapture4) for TIM_GetCapture4
-    bsp_tim4.o(i.TIM4_IRQHandler) refers to stm32f4xx_tim.o(i.TIM_SetCompare4) for TIM_SetCompare4
-    bsp_tim4.o(i.TIM4_IRQHandler) refers to main.o(.data) for CCR1_Val
-    bsp_tim4.o(i.TIM_PWMOUTPUT_Config) refers to stm32f4xx_rcc.o(i.RCC_AHB1PeriphClockCmd) for RCC_AHB1PeriphClockCmd
-    bsp_tim4.o(i.TIM_PWMOUTPUT_Config) refers to stm32f4xx_rcc.o(i.RCC_APB1PeriphClockCmd) for RCC_APB1PeriphClockCmd
-    bsp_tim4.o(i.TIM_PWMOUTPUT_Config) refers to stm32f4xx_gpio.o(i.GPIO_PinAFConfig) for GPIO_PinAFConfig
-    bsp_tim4.o(i.TIM_PWMOUTPUT_Config) refers to stm32f4xx_gpio.o(i.GPIO_Init) for GPIO_Init
-    bsp_tim4.o(i.TIM_PWMOUTPUT_Config) refers to misc.o(i.NVIC_PriorityGroupConfig) for NVIC_PriorityGroupConfig
-    bsp_tim4.o(i.TIM_PWMOUTPUT_Config) refers to misc.o(i.NVIC_Init) for NVIC_Init
-    bsp_tim4.o(i.TIM_PWMOUTPUT_Config) refers to stm32f4xx_tim.o(i.TIM_TimeBaseInit) for TIM_TimeBaseInit
-    bsp_tim4.o(i.TIM_PWMOUTPUT_Config) refers to stm32f4xx_tim.o(i.TIM_OC1Init) for TIM_OC1Init
-    bsp_tim4.o(i.TIM_PWMOUTPUT_Config) refers to stm32f4xx_tim.o(i.TIM_OC1PreloadConfig) for TIM_OC1PreloadConfig
-    bsp_tim4.o(i.TIM_PWMOUTPUT_Config) refers to stm32f4xx_tim.o(i.TIM_OC2Init) for TIM_OC2Init
-    bsp_tim4.o(i.TIM_PWMOUTPUT_Config) refers to stm32f4xx_tim.o(i.TIM_OC2PreloadConfig) for TIM_OC2PreloadConfig
-    bsp_tim4.o(i.TIM_PWMOUTPUT_Config) refers to stm32f4xx_tim.o(i.TIM_OC3Init) for TIM_OC3Init
-    bsp_tim4.o(i.TIM_PWMOUTPUT_Config) refers to stm32f4xx_tim.o(i.TIM_OC3PreloadConfig) for TIM_OC3PreloadConfig
-    bsp_tim4.o(i.TIM_PWMOUTPUT_Config) refers to stm32f4xx_tim.o(i.TIM_OC4Init) for TIM_OC4Init
-    bsp_tim4.o(i.TIM_PWMOUTPUT_Config) refers to stm32f4xx_tim.o(i.TIM_OC4PreloadConfig) for TIM_OC4PreloadConfig
-    bsp_tim4.o(i.TIM_PWMOUTPUT_Config) refers to stm32f4xx_tim.o(i.TIM_OCStructInit) for TIM_OCStructInit
-    bsp_tim4.o(i.TIM_PWMOUTPUT_Config) refers to stm32f4xx_tim.o(i.TIM_Cmd) for TIM_Cmd
-    bsp_tim4.o(i.TIM_PWMOUTPUT_Config) refers to stm32f4xx_tim.o(i.TIM_ITConfig) for TIM_ITConfig
-    bsp_tim4.o(i.TIM_PWMOUTPUT_Config) refers to main.o(.data) for CCR1_Val
+    bsp_tim4_1.o(i.TIM4_IRQHandler) refers to stm32f4xx_tim.o(i.TIM_GetITStatus) for TIM_GetITStatus
+    bsp_tim4_1.o(i.TIM4_IRQHandler) refers to stm32f4xx_tim.o(i.TIM_ClearITPendingBit) for TIM_ClearITPendingBit
+    bsp_tim4_1.o(i.TIM4_IRQHandler) refers to stm32f4xx_tim.o(i.TIM_GetCapture1) for TIM_GetCapture1
+    bsp_tim4_1.o(i.TIM4_IRQHandler) refers to stm32f4xx_tim.o(i.TIM_SetCompare1) for TIM_SetCompare1
+    bsp_tim4_1.o(i.TIM4_IRQHandler) refers to stm32f4xx_tim.o(i.TIM_GetCapture2) for TIM_GetCapture2
+    bsp_tim4_1.o(i.TIM4_IRQHandler) refers to stm32f4xx_tim.o(i.TIM_SetCompare2) for TIM_SetCompare2
+    bsp_tim4_1.o(i.TIM4_IRQHandler) refers to stm32f4xx_tim.o(i.TIM_GetCapture3) for TIM_GetCapture3
+    bsp_tim4_1.o(i.TIM4_IRQHandler) refers to stm32f4xx_tim.o(i.TIM_SetCompare3) for TIM_SetCompare3
+    bsp_tim4_1.o(i.TIM4_IRQHandler) refers to stm32f4xx_tim.o(i.TIM_GetCapture4) for TIM_GetCapture4
+    bsp_tim4_1.o(i.TIM4_IRQHandler) refers to stm32f4xx_tim.o(i.TIM_SetCompare4) for TIM_SetCompare4
+    bsp_tim4_1.o(i.TIM4_IRQHandler) refers to main.o(.data) for CCR1_Val
+    bsp_tim4_1.o(i.TIM_PWMOUTPUT_Config) refers to stm32f4xx_rcc.o(i.RCC_AHB1PeriphClockCmd) for RCC_AHB1PeriphClockCmd
+    bsp_tim4_1.o(i.TIM_PWMOUTPUT_Config) refers to stm32f4xx_rcc.o(i.RCC_APB1PeriphClockCmd) for RCC_APB1PeriphClockCmd
+    bsp_tim4_1.o(i.TIM_PWMOUTPUT_Config) refers to stm32f4xx_gpio.o(i.GPIO_PinAFConfig) for GPIO_PinAFConfig
+    bsp_tim4_1.o(i.TIM_PWMOUTPUT_Config) refers to stm32f4xx_gpio.o(i.GPIO_Init) for GPIO_Init
+    bsp_tim4_1.o(i.TIM_PWMOUTPUT_Config) refers to misc.o(i.NVIC_PriorityGroupConfig) for NVIC_PriorityGroupConfig
+    bsp_tim4_1.o(i.TIM_PWMOUTPUT_Config) refers to misc.o(i.NVIC_Init) for NVIC_Init
+    bsp_tim4_1.o(i.TIM_PWMOUTPUT_Config) refers to stm32f4xx_tim.o(i.TIM_TimeBaseInit) for TIM_TimeBaseInit
+    bsp_tim4_1.o(i.TIM_PWMOUTPUT_Config) refers to stm32f4xx_tim.o(i.TIM_OC1Init) for TIM_OC1Init
+    bsp_tim4_1.o(i.TIM_PWMOUTPUT_Config) refers to stm32f4xx_tim.o(i.TIM_OC1PreloadConfig) for TIM_OC1PreloadConfig
+    bsp_tim4_1.o(i.TIM_PWMOUTPUT_Config) refers to stm32f4xx_tim.o(i.TIM_OC2Init) for TIM_OC2Init
+    bsp_tim4_1.o(i.TIM_PWMOUTPUT_Config) refers to stm32f4xx_tim.o(i.TIM_OC2PreloadConfig) for TIM_OC2PreloadConfig
+    bsp_tim4_1.o(i.TIM_PWMOUTPUT_Config) refers to stm32f4xx_tim.o(i.TIM_OC3Init) for TIM_OC3Init
+    bsp_tim4_1.o(i.TIM_PWMOUTPUT_Config) refers to stm32f4xx_tim.o(i.TIM_OC3PreloadConfig) for TIM_OC3PreloadConfig
+    bsp_tim4_1.o(i.TIM_PWMOUTPUT_Config) refers to stm32f4xx_tim.o(i.TIM_OC4Init) for TIM_OC4Init
+    bsp_tim4_1.o(i.TIM_PWMOUTPUT_Config) refers to stm32f4xx_tim.o(i.TIM_OC4PreloadConfig) for TIM_OC4PreloadConfig
+    bsp_tim4_1.o(i.TIM_PWMOUTPUT_Config) refers to stm32f4xx_tim.o(i.TIM_OCStructInit) for TIM_OCStructInit
+    bsp_tim4_1.o(i.TIM_PWMOUTPUT_Config) refers to stm32f4xx_tim.o(i.TIM_Cmd) for TIM_Cmd
+    bsp_tim4_1.o(i.TIM_PWMOUTPUT_Config) refers to stm32f4xx_tim.o(i.TIM_ITConfig) for TIM_ITConfig
+    bsp_tim4_1.o(i.TIM_PWMOUTPUT_Config) refers to main.o(.data) for CCR1_Val
     oled.o(i.I2C_Start) refers to stm32f4xx_gpio.o(i.GPIO_SetBits) for GPIO_SetBits
     oled.o(i.I2C_Start) refers to oled.o(i.IIC_delay) for IIC_delay
     oled.o(i.I2C_Start) refers to stm32f4xx_gpio.o(i.GPIO_ResetBits) for GPIO_ResetBits
@@ -692,9 +692,9 @@ Section Cross References
     bsp_exti.o(i.NVIC_Configuration) refers to misc.o(i.NVIC_PriorityGroupConfig) for NVIC_PriorityGroupConfig
     bsp_exti.o(i.NVIC_Configuration) refers to misc.o(i.NVIC_Init) for NVIC_Init
     bsp_resetmcu.o(i.TIM6_DAC_IRQHandler) refers to stm32f4xx_tim.o(i.TIM_GetITStatus) for TIM_GetITStatus
+    bsp_resetmcu.o(i.TIM6_DAC_IRQHandler) refers to stm32f4xx_tim.o(i.TIM_ClearITPendingBit) for TIM_ClearITPendingBit
     bsp_resetmcu.o(i.TIM6_DAC_IRQHandler) refers to oled.o(i.OLED_Refresh) for OLED_Refresh
     bsp_resetmcu.o(i.TIM6_DAC_IRQHandler) refers to usart.o(i.pack_send_data) for pack_send_data
-    bsp_resetmcu.o(i.TIM6_DAC_IRQHandler) refers to stm32f4xx_tim.o(i.TIM_ClearITPendingBit) for TIM_ClearITPendingBit
     bsp_resetmcu.o(i.TIM_Mode_Config) refers to stm32f4xx_rcc.o(i.RCC_APB1PeriphClockCmd) for RCC_APB1PeriphClockCmd
     bsp_resetmcu.o(i.TIM_Mode_Config) refers to stm32f4xx_tim.o(i.TIM_TimeBaseInit) for TIM_TimeBaseInit
     bsp_resetmcu.o(i.TIM_Mode_Config) refers to stm32f4xx_tim.o(i.TIM_ClearFlag) for TIM_ClearFlag
@@ -1858,9 +1858,9 @@ Removing Unused input sections from the image.
     Removing usart.o(i.Usart_SendString), (42 bytes).
     Removing usart.o(i._sys_exit), (4 bytes).
     Removing usart.o(i.fgetc), (32 bytes).
-    Removing bsp_tim4.o(.rev16_text), (4 bytes).
-    Removing bsp_tim4.o(.revsh_text), (4 bytes).
-    Removing bsp_tim4.o(.data), (4 bytes).
+    Removing bsp_tim4_1.o(.rev16_text), (4 bytes).
+    Removing bsp_tim4_1.o(.revsh_text), (4 bytes).
+    Removing bsp_tim4_1.o(.data), (4 bytes).
     Removing oled.o(.rev16_text), (4 bytes).
     Removing oled.o(.revsh_text), (4 bytes).
     Removing oled.o(i.OLED_ColorTurn), (28 bytes).
@@ -2040,7 +2040,7 @@ Image Symbol Table
     ..\HARDWARE\PS2\pstwo.c                  0x00000000   Number         0  pstwo.o ABSOLUTE
     ..\HARDWARE\RESETMCU\bsp_resetmcu.c      0x00000000   Number         0  bsp_resetmcu.o ABSOLUTE
     ..\HARDWARE\mecanum\bsp_mecanum.c        0x00000000   Number         0  bsp_mecanum.o ABSOLUTE
-    ..\SYSTEM\TIM4\bsp_tim4.c                0x00000000   Number         0  bsp_tim4.o ABSOLUTE
+    ..\SYSTEM\TIM4\bsp_tim4.c                0x00000000   Number         0  bsp_tim4_1.o ABSOLUTE
     ..\SYSTEM\delay\delay.c                  0x00000000   Number         0  delay_1.o ABSOLUTE
     ..\SYSTEM\sys\sys.c                      0x00000000   Number         0  sys.o ABSOLUTE
     ..\SYSTEM\usart\usart.c                  0x00000000   Number         0  usart.o ABSOLUTE
@@ -2088,7 +2088,7 @@ Image Symbol Table
     ..\\HARDWARE\\PS2\\pstwo.c               0x00000000   Number         0  pstwo.o ABSOLUTE
     ..\\HARDWARE\\RESETMCU\\bsp_resetmcu.c   0x00000000   Number         0  bsp_resetmcu.o ABSOLUTE
     ..\\HARDWARE\\mecanum\\bsp_mecanum.c     0x00000000   Number         0  bsp_mecanum.o ABSOLUTE
-    ..\\SYSTEM\\TIM4\\bsp_tim4.c             0x00000000   Number         0  bsp_tim4.o ABSOLUTE
+    ..\\SYSTEM\\TIM4\\bsp_tim4.c             0x00000000   Number         0  bsp_tim4_1.o ABSOLUTE
     ..\\SYSTEM\\delay\\delay.c               0x00000000   Number         0  delay_1.o ABSOLUTE
     ..\\SYSTEM\\sys\\sys.c                   0x00000000   Number         0  sys.o ABSOLUTE
     ..\\SYSTEM\\usart\\usart.c               0x00000000   Number         0  usart.o ABSOLUTE
@@ -2216,7 +2216,7 @@ Image Symbol Table
     i.SysTick_CLKSourceConfig                0x08002108   Section        0  misc.o(i.SysTick_CLKSourceConfig)
     i.SysTick_Handler                        0x08002130   Section        0  stm32f4xx_it.o(i.SysTick_Handler)
     i.SystemInit                             0x08002134   Section        0  system_stm32f4xx.o(i.SystemInit)
-    i.TIM4_IRQHandler                        0x080021ac   Section        0  bsp_tim4.o(i.TIM4_IRQHandler)
+    i.TIM4_IRQHandler                        0x080021ac   Section        0  bsp_tim4_1.o(i.TIM4_IRQHandler)
     i.TIM6_DAC_IRQHandler                    0x08002268   Section        0  bsp_resetmcu.o(i.TIM6_DAC_IRQHandler)
     i.TIM_ClearFlag                          0x0800228c   Section        0  stm32f4xx_tim.o(i.TIM_ClearFlag)
     i.TIM_ClearITPendingBit                  0x08002292   Section        0  stm32f4xx_tim.o(i.TIM_ClearITPendingBit)
@@ -2237,7 +2237,7 @@ Image Symbol Table
     i.TIM_OC4Init                            0x08002544   Section        0  stm32f4xx_tim.o(i.TIM_OC4Init)
     i.TIM_OC4PreloadConfig                   0x080025bc   Section        0  stm32f4xx_tim.o(i.TIM_OC4PreloadConfig)
     i.TIM_OCStructInit                       0x080025d6   Section        0  stm32f4xx_tim.o(i.TIM_OCStructInit)
-    i.TIM_PWMOUTPUT_Config                   0x080025ec   Section        0  bsp_tim4.o(i.TIM_PWMOUTPUT_Config)
+    i.TIM_PWMOUTPUT_Config                   0x080025ec   Section        0  bsp_tim4_1.o(i.TIM_PWMOUTPUT_Config)
     i.TIM_SetCompare1                        0x08002748   Section        0  stm32f4xx_tim.o(i.TIM_SetCompare1)
     i.TIM_SetCompare2                        0x0800274c   Section        0  stm32f4xx_tim.o(i.TIM_SetCompare2)
     i.TIM_SetCompare3                        0x08002750   Section        0  stm32f4xx_tim.o(i.TIM_SetCompare3)
@@ -2635,7 +2635,7 @@ Image Symbol Table
     SysTick_CLKSourceConfig                  0x08002109   Thumb Code    40  misc.o(i.SysTick_CLKSourceConfig)
     SysTick_Handler                          0x08002131   Thumb Code     2  stm32f4xx_it.o(i.SysTick_Handler)
     SystemInit                               0x08002135   Thumb Code   104  system_stm32f4xx.o(i.SystemInit)
-    TIM4_IRQHandler                          0x080021ad   Thumb Code   168  bsp_tim4.o(i.TIM4_IRQHandler)
+    TIM4_IRQHandler                          0x080021ad   Thumb Code   168  bsp_tim4_1.o(i.TIM4_IRQHandler)
     TIM6_DAC_IRQHandler                      0x08002269   Thumb Code    32  bsp_resetmcu.o(i.TIM6_DAC_IRQHandler)
     TIM_ClearFlag                            0x0800228d   Thumb Code     6  stm32f4xx_tim.o(i.TIM_ClearFlag)
     TIM_ClearITPendingBit                    0x08002293   Thumb Code     6  stm32f4xx_tim.o(i.TIM_ClearITPendingBit)
@@ -2656,7 +2656,7 @@ Image Symbol Table
     TIM_OC4Init                              0x08002545   Thumb Code   112  stm32f4xx_tim.o(i.TIM_OC4Init)
     TIM_OC4PreloadConfig                     0x080025bd   Thumb Code    26  stm32f4xx_tim.o(i.TIM_OC4PreloadConfig)
     TIM_OCStructInit                         0x080025d7   Thumb Code    20  stm32f4xx_tim.o(i.TIM_OCStructInit)
-    TIM_PWMOUTPUT_Config                     0x080025ed   Thumb Code   324  bsp_tim4.o(i.TIM_PWMOUTPUT_Config)
+    TIM_PWMOUTPUT_Config                     0x080025ed   Thumb Code   324  bsp_tim4_1.o(i.TIM_PWMOUTPUT_Config)
     TIM_SetCompare1                          0x08002749   Thumb Code     4  stm32f4xx_tim.o(i.TIM_SetCompare1)
     TIM_SetCompare2                          0x0800274d   Thumb Code     4  stm32f4xx_tim.o(i.TIM_SetCompare2)
     TIM_SetCompare3                          0x08002751   Thumb Code     4  stm32f4xx_tim.o(i.TIM_SetCompare3)
@@ -2925,7 +2925,7 @@ Memory Map of the image
     0x08002130   0x00000002   Code   RO          203    i.SysTick_Handler   stm32f4xx_it.o
     0x08002132   0x00000002   PAD
     0x08002134   0x00000078   Code   RO          270    i.SystemInit        system_stm32f4xx.o
-    0x080021ac   0x000000bc   Code   RO         5206    i.TIM4_IRQHandler   bsp_tim4.o
+    0x080021ac   0x000000bc   Code   RO         5206    i.TIM4_IRQHandler   bsp_tim4_1.o
     0x08002268   0x00000024   Code   RO         6257    i.TIM6_DAC_IRQHandler  bsp_resetmcu.o
     0x0800228c   0x00000006   Code   RO         4266    i.TIM_ClearFlag     stm32f4xx_tim.o
     0x08002292   0x00000006   Code   RO         4267    i.TIM_ClearITPendingBit  stm32f4xx_tim.o
@@ -2950,7 +2950,7 @@ Memory Map of the image
     0x080025bc   0x0000001a   Code   RO         4318    i.TIM_OC4PreloadConfig  stm32f4xx_tim.o
     0x080025d6   0x00000014   Code   RO         4319    i.TIM_OCStructInit  stm32f4xx_tim.o
     0x080025ea   0x00000002   PAD
-    0x080025ec   0x0000015c   Code   RO         5207    i.TIM_PWMOUTPUT_Config  bsp_tim4.o
+    0x080025ec   0x0000015c   Code   RO         5207    i.TIM_PWMOUTPUT_Config  bsp_tim4_1.o
     0x08002748   0x00000004   Code   RO         4334    i.TIM_SetCompare1   stm32f4xx_tim.o
     0x0800274c   0x00000004   Code   RO         4335    i.TIM_SetCompare2   stm32f4xx_tim.o
     0x08002750   0x00000004   Code   RO         4336    i.TIM_SetCompare3   stm32f4xx_tim.o
@@ -3100,7 +3100,7 @@ Image component sizes
        178         22          0          0          0       1659   bsp_exti.o
        196         12          0          0          0        651   bsp_mecanum.o
        146          8          0          0          0       1664   bsp_resetmcu.o
-       536         44          0          0          0       1669   bsp_tim4.o
+       536         44          0          0          0       1669   bsp_tim4_1.o
        268         16          0          4          0       2527   delay_1.o
       6926        318        157         53          0      32848   inv_mpu.o
       3128        138       3062          0         16      21602   inv_mpu_dmp_motion_driver.o

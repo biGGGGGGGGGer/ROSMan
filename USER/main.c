@@ -18,9 +18,9 @@ void judge_Dir(void);
 void Give_PWM(void);
 
 int cnt = 0;
-float pitch,roll,yaw; 		//欧拉角
-short aacx,aacy,aacz;		//加速度传感器原始数据
-short gyrox,gyroy,gyroz;	//陀螺仪原始数据	
+float pitch,roll,yaw; 		 //欧拉角
+short aacx,aacy,aacz;		   //加速度传感器原始数据
+short gyrox,gyroy,gyroz;	 //陀螺仪原始数据	
 int i;
 extern float temperature;//温度
 int PS2_LX,PS2_LY,PS2_RX,PS2_RY,PS2_KEY;     
@@ -40,19 +40,19 @@ int main(void)
 {	
 	delay_init(168);
 	MECANUM_Init();
-	TIM_Mode_Config();                 // 基本定时器中断：串口发送数据；更新OLED。
 	TIM_PWMOUTPUT_Config(65535,0);
 	EXTI_MPU6050_Config();
 	Debug_USART_Config();
 	OLED_Init();					//初始化OLED
 	PS2_Init();  					//=====ps2驱动端口初始化
 	PS2_SetInit(); 				//=====ps2配置初始化,配置“红绿灯模式”，并选择是否可以修改
+	TIM_Mode_Config();    // 基本定时器中断：串口发送数据；更新OLED。
 	MPU_Init();						//初始化MPU6050
 	while(mpu_dmp_init() !=0)
 	{
 		printf("DMP初始化失败！\n");
 	}			
-	delay_ms(500);
+	delay_ms(1000);
 			
 	while(1)
 	{

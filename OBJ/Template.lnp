@@ -41,7 +41,7 @@
 "..\obj\delay_1.o"
 "..\obj\sys.o"
 "..\obj\usart.o"
-"..\obj\bsp_tim4.o"
+"..\obj\bsp_tim4_1.o"
 "..\obj\oled.o"
 "..\obj\mpu6050.o"
 "..\obj\inv_mpu.o"

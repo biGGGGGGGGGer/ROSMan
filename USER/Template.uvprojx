@@ -333,7 +333,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F40_41xxx,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\CORE;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\FWLIB\inc;..\HARDWARE\OLED;..\HARDWARE\IIC;..\HARDWARE\MPU6050\eMPL;..\HARDWARE\MPU6050;..\HARDWARE\PS2;..\HARDWARE\mecanum;..\HARDWARE\EXTI;..\SYSTEM\TIM4</IncludePath>
+              <IncludePath>..\CORE;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\FWLIB\inc;..\HARDWARE\OLED;..\HARDWARE\IIC;..\HARDWARE\MPU6050\eMPL;..\HARDWARE\MPU6050;..\HARDWARE\PS2;..\HARDWARE\mecanum;..\HARDWARE\EXTI;..\SYSTEM\TIM4;..\HARDWARE\RESETMCU</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -660,6 +660,11 @@
               <FileName>bsp_exti.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\EXTI\bsp_exti.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_resetmcu.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\RESETMCU\bsp_resetmcu.c</FilePath>
             </File>
           </Files>
         </Group>
