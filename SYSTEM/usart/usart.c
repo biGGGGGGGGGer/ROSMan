@@ -262,6 +262,11 @@ void pack_send_data(uint8_t cmd)
 	  ImuData[_num++] = _roll.data[2];
 	  ImuData[_num++] = _roll.data[3];
 		
+/*
+		打包底盘运动状态
+		
+ */
+
 		/*
 				打包数据帧
 		 */
