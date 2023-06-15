@@ -21,6 +21,7 @@ speedimu/CMakeFiles/speedimu_node.dir/src/speedimu_node.cpp.o
  /opt/ros/melodic/include/ros/message.h
  /opt/ros/melodic/include/ros/message_event.h
  /opt/ros/melodic/include/ros/message_forward.h
+ /opt/ros/melodic/include/ros/message_operations.h
  /opt/ros/melodic/include/ros/message_traits.h
  /opt/ros/melodic/include/ros/names.h
  /opt/ros/melodic/include/ros/node_handle.h
@@ -58,5 +59,8 @@ speedimu/CMakeFiles/speedimu_node.dir/src/speedimu_node.cpp.o
  /opt/ros/melodic/include/ros/wall_timer.h
  /opt/ros/melodic/include/ros/wall_timer_options.h
  /opt/ros/melodic/include/rosconsole/macros_generated.h
+ /opt/ros/melodic/include/serial/serial.h
+ /opt/ros/melodic/include/serial/v8stdint.h
+ /opt/ros/melodic/include/std_msgs/Float64.h
  /opt/ros/melodic/include/xmlrpcpp/XmlRpcDecl.h
  /opt/ros/melodic/include/xmlrpcpp/XmlRpcValue.h

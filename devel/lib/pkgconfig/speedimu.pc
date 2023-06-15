@@ -3,6 +3,6 @@ prefix=/home/iner/catkin_ws/devel
 Name: speedimu
 Description: Description of speedimu
 Version: 0.0.0
-Cflags: 
+Cflags: -I/home/iner/catkin_ws/devel/include
 Libs: -L${prefix}/lib 
-Requires: 
+Requires: roscpp rospy std_msgs serial message_generation message_runtime

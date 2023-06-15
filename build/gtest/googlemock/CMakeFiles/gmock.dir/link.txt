@@ -1,1 +1,1 @@
-/usr/bin/c++ -fPIC  -g -fPIC -O3 -std=c++11 -fopenmp -O2 -g -DNDEBUG  -shared -Wl,-soname,libgmock.so -o libgmock.so CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.o CMakeFiles/gmock.dir/src/gmock-all.cc.o -lpthread 
+/usr/bin/c++ -fPIC  -g -fPIC -O3 -std=c++11 -fopenmp  -shared -Wl,-soname,libgmock.so -o libgmock.so CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.o CMakeFiles/gmock.dir/src/gmock-all.cc.o -lpthread 

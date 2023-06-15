@@ -68,18 +68,6 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -101,6 +89,18 @@ test:
 test/fast: test
 
 .PHONY : test/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
 
 # Special rule for the target list_install_components
 list_install_components:
@@ -166,6 +166,111 @@ preinstall/fast:
 depend:
 	cd /home/iner/catkin_ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
+
+# Convenience name for target.
+speedimu/CMakeFiles/speedimu_genpy.dir/rule:
+	cd /home/iner/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 speedimu/CMakeFiles/speedimu_genpy.dir/rule
+.PHONY : speedimu/CMakeFiles/speedimu_genpy.dir/rule
+
+# Convenience name for target.
+speedimu_genpy: speedimu/CMakeFiles/speedimu_genpy.dir/rule
+
+.PHONY : speedimu_genpy
+
+# fast build rule for target.
+speedimu_genpy/fast:
+	cd /home/iner/catkin_ws/build && $(MAKE) -f speedimu/CMakeFiles/speedimu_genpy.dir/build.make speedimu/CMakeFiles/speedimu_genpy.dir/build
+.PHONY : speedimu_genpy/fast
+
+# Convenience name for target.
+speedimu/CMakeFiles/speedimu_generate_messages_py.dir/rule:
+	cd /home/iner/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 speedimu/CMakeFiles/speedimu_generate_messages_py.dir/rule
+.PHONY : speedimu/CMakeFiles/speedimu_generate_messages_py.dir/rule
+
+# Convenience name for target.
+speedimu_generate_messages_py: speedimu/CMakeFiles/speedimu_generate_messages_py.dir/rule
+
+.PHONY : speedimu_generate_messages_py
+
+# fast build rule for target.
+speedimu_generate_messages_py/fast:
+	cd /home/iner/catkin_ws/build && $(MAKE) -f speedimu/CMakeFiles/speedimu_generate_messages_py.dir/build.make speedimu/CMakeFiles/speedimu_generate_messages_py.dir/build
+.PHONY : speedimu_generate_messages_py/fast
+
+# Convenience name for target.
+speedimu/CMakeFiles/speedimu_gennodejs.dir/rule:
+	cd /home/iner/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 speedimu/CMakeFiles/speedimu_gennodejs.dir/rule
+.PHONY : speedimu/CMakeFiles/speedimu_gennodejs.dir/rule
+
+# Convenience name for target.
+speedimu_gennodejs: speedimu/CMakeFiles/speedimu_gennodejs.dir/rule
+
+.PHONY : speedimu_gennodejs
+
+# fast build rule for target.
+speedimu_gennodejs/fast:
+	cd /home/iner/catkin_ws/build && $(MAKE) -f speedimu/CMakeFiles/speedimu_gennodejs.dir/build.make speedimu/CMakeFiles/speedimu_gennodejs.dir/build
+.PHONY : speedimu_gennodejs/fast
+
+# Convenience name for target.
+speedimu/CMakeFiles/speedimu_generate_messages_lisp.dir/rule:
+	cd /home/iner/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 speedimu/CMakeFiles/speedimu_generate_messages_lisp.dir/rule
+.PHONY : speedimu/CMakeFiles/speedimu_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+speedimu_generate_messages_lisp: speedimu/CMakeFiles/speedimu_generate_messages_lisp.dir/rule
+
+.PHONY : speedimu_generate_messages_lisp
+
+# fast build rule for target.
+speedimu_generate_messages_lisp/fast:
+	cd /home/iner/catkin_ws/build && $(MAKE) -f speedimu/CMakeFiles/speedimu_generate_messages_lisp.dir/build.make speedimu/CMakeFiles/speedimu_generate_messages_lisp.dir/build
+.PHONY : speedimu_generate_messages_lisp/fast
+
+# Convenience name for target.
+speedimu/CMakeFiles/speedimu_generate_messages_eus.dir/rule:
+	cd /home/iner/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 speedimu/CMakeFiles/speedimu_generate_messages_eus.dir/rule
+.PHONY : speedimu/CMakeFiles/speedimu_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+speedimu_generate_messages_eus: speedimu/CMakeFiles/speedimu_generate_messages_eus.dir/rule
+
+.PHONY : speedimu_generate_messages_eus
+
+# fast build rule for target.
+speedimu_generate_messages_eus/fast:
+	cd /home/iner/catkin_ws/build && $(MAKE) -f speedimu/CMakeFiles/speedimu_generate_messages_eus.dir/build.make speedimu/CMakeFiles/speedimu_generate_messages_eus.dir/build
+.PHONY : speedimu_generate_messages_eus/fast
+
+# Convenience name for target.
+speedimu/CMakeFiles/speedimu_gencpp.dir/rule:
+	cd /home/iner/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 speedimu/CMakeFiles/speedimu_gencpp.dir/rule
+.PHONY : speedimu/CMakeFiles/speedimu_gencpp.dir/rule
+
+# Convenience name for target.
+speedimu_gencpp: speedimu/CMakeFiles/speedimu_gencpp.dir/rule
+
+.PHONY : speedimu_gencpp
+
+# fast build rule for target.
+speedimu_gencpp/fast:
+	cd /home/iner/catkin_ws/build && $(MAKE) -f speedimu/CMakeFiles/speedimu_gencpp.dir/build.make speedimu/CMakeFiles/speedimu_gencpp.dir/build
+.PHONY : speedimu_gencpp/fast
+
+# Convenience name for target.
+speedimu/CMakeFiles/speedimu_generate_messages_cpp.dir/rule:
+	cd /home/iner/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 speedimu/CMakeFiles/speedimu_generate_messages_cpp.dir/rule
+.PHONY : speedimu/CMakeFiles/speedimu_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+speedimu_generate_messages_cpp: speedimu/CMakeFiles/speedimu_generate_messages_cpp.dir/rule
+
+.PHONY : speedimu_generate_messages_cpp
+
+# fast build rule for target.
+speedimu_generate_messages_cpp/fast:
+	cd /home/iner/catkin_ws/build && $(MAKE) -f speedimu/CMakeFiles/speedimu_generate_messages_cpp.dir/build.make speedimu/CMakeFiles/speedimu_generate_messages_cpp.dir/build
+.PHONY : speedimu_generate_messages_cpp/fast
 
 # Convenience name for target.
 speedimu/CMakeFiles/roscpp_generate_messages_py.dir/rule:
@@ -258,6 +363,21 @@ std_msgs_generate_messages_lisp/fast:
 .PHONY : std_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
+speedimu/CMakeFiles/speedimu_generate_messages_nodejs.dir/rule:
+	cd /home/iner/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 speedimu/CMakeFiles/speedimu_generate_messages_nodejs.dir/rule
+.PHONY : speedimu/CMakeFiles/speedimu_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+speedimu_generate_messages_nodejs: speedimu/CMakeFiles/speedimu_generate_messages_nodejs.dir/rule
+
+.PHONY : speedimu_generate_messages_nodejs
+
+# fast build rule for target.
+speedimu_generate_messages_nodejs/fast:
+	cd /home/iner/catkin_ws/build && $(MAKE) -f speedimu/CMakeFiles/speedimu_generate_messages_nodejs.dir/build.make speedimu/CMakeFiles/speedimu_generate_messages_nodejs.dir/build
+.PHONY : speedimu_generate_messages_nodejs/fast
+
+# Convenience name for target.
 speedimu/CMakeFiles/roscpp_generate_messages_cpp.dir/rule:
 	cd /home/iner/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 speedimu/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
 .PHONY : speedimu/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
@@ -273,19 +393,19 @@ roscpp_generate_messages_cpp/fast:
 .PHONY : roscpp_generate_messages_cpp/fast
 
 # Convenience name for target.
-speedimu/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule:
-	cd /home/iner/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 speedimu/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
-.PHONY : speedimu/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
+speedimu/CMakeFiles/speedimu_genlisp.dir/rule:
+	cd /home/iner/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 speedimu/CMakeFiles/speedimu_genlisp.dir/rule
+.PHONY : speedimu/CMakeFiles/speedimu_genlisp.dir/rule
 
 # Convenience name for target.
-rosgraph_msgs_generate_messages_eus: speedimu/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
+speedimu_genlisp: speedimu/CMakeFiles/speedimu_genlisp.dir/rule
 
-.PHONY : rosgraph_msgs_generate_messages_eus
+.PHONY : speedimu_genlisp
 
 # fast build rule for target.
-rosgraph_msgs_generate_messages_eus/fast:
-	cd /home/iner/catkin_ws/build && $(MAKE) -f speedimu/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make speedimu/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build
-.PHONY : rosgraph_msgs_generate_messages_eus/fast
+speedimu_genlisp/fast:
+	cd /home/iner/catkin_ws/build && $(MAKE) -f speedimu/CMakeFiles/speedimu_genlisp.dir/build.make speedimu/CMakeFiles/speedimu_genlisp.dir/build
+.PHONY : speedimu_genlisp/fast
 
 # Convenience name for target.
 speedimu/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule:
@@ -316,6 +436,51 @@ std_msgs_generate_messages_cpp: speedimu/CMakeFiles/std_msgs_generate_messages_c
 std_msgs_generate_messages_cpp/fast:
 	cd /home/iner/catkin_ws/build && $(MAKE) -f speedimu/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make speedimu/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
 .PHONY : std_msgs_generate_messages_cpp/fast
+
+# Convenience name for target.
+speedimu/CMakeFiles/_speedimu_generate_messages_check_deps_imuspeed.dir/rule:
+	cd /home/iner/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 speedimu/CMakeFiles/_speedimu_generate_messages_check_deps_imuspeed.dir/rule
+.PHONY : speedimu/CMakeFiles/_speedimu_generate_messages_check_deps_imuspeed.dir/rule
+
+# Convenience name for target.
+_speedimu_generate_messages_check_deps_imuspeed: speedimu/CMakeFiles/_speedimu_generate_messages_check_deps_imuspeed.dir/rule
+
+.PHONY : _speedimu_generate_messages_check_deps_imuspeed
+
+# fast build rule for target.
+_speedimu_generate_messages_check_deps_imuspeed/fast:
+	cd /home/iner/catkin_ws/build && $(MAKE) -f speedimu/CMakeFiles/_speedimu_generate_messages_check_deps_imuspeed.dir/build.make speedimu/CMakeFiles/_speedimu_generate_messages_check_deps_imuspeed.dir/build
+.PHONY : _speedimu_generate_messages_check_deps_imuspeed/fast
+
+# Convenience name for target.
+speedimu/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule:
+	cd /home/iner/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 speedimu/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
+.PHONY : speedimu/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+rosgraph_msgs_generate_messages_eus: speedimu/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
+
+.PHONY : rosgraph_msgs_generate_messages_eus
+
+# fast build rule for target.
+rosgraph_msgs_generate_messages_eus/fast:
+	cd /home/iner/catkin_ws/build && $(MAKE) -f speedimu/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make speedimu/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build
+.PHONY : rosgraph_msgs_generate_messages_eus/fast
+
+# Convenience name for target.
+speedimu/CMakeFiles/speedimu_generate_messages.dir/rule:
+	cd /home/iner/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 speedimu/CMakeFiles/speedimu_generate_messages.dir/rule
+.PHONY : speedimu/CMakeFiles/speedimu_generate_messages.dir/rule
+
+# Convenience name for target.
+speedimu_generate_messages: speedimu/CMakeFiles/speedimu_generate_messages.dir/rule
+
+.PHONY : speedimu_generate_messages
+
+# fast build rule for target.
+speedimu_generate_messages/fast:
+	cd /home/iner/catkin_ws/build && $(MAKE) -f speedimu/CMakeFiles/speedimu_generate_messages.dir/build.make speedimu/CMakeFiles/speedimu_generate_messages.dir/build
+.PHONY : speedimu_generate_messages/fast
 
 # Convenience name for target.
 speedimu/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule:
@@ -376,6 +541,21 @@ std_msgs_generate_messages_nodejs: speedimu/CMakeFiles/std_msgs_generate_message
 std_msgs_generate_messages_nodejs/fast:
 	cd /home/iner/catkin_ws/build && $(MAKE) -f speedimu/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make speedimu/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build
 .PHONY : std_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+speedimu/CMakeFiles/speedimu_geneus.dir/rule:
+	cd /home/iner/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 speedimu/CMakeFiles/speedimu_geneus.dir/rule
+.PHONY : speedimu/CMakeFiles/speedimu_geneus.dir/rule
+
+# Convenience name for target.
+speedimu_geneus: speedimu/CMakeFiles/speedimu_geneus.dir/rule
+
+.PHONY : speedimu_geneus
+
+# fast build rule for target.
+speedimu_geneus/fast:
+	cd /home/iner/catkin_ws/build && $(MAKE) -f speedimu/CMakeFiles/speedimu_geneus.dir/build.make speedimu/CMakeFiles/speedimu_geneus.dir/build
+.PHONY : speedimu_geneus/fast
 
 # Convenience name for target.
 speedimu/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule:
@@ -441,9 +621,16 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/strip"
-	@echo "... install/local"
 	@echo "... rebuild_cache"
+	@echo "... speedimu_genpy"
 	@echo "... test"
+	@echo "... speedimu_generate_messages_py"
+	@echo "... speedimu_gennodejs"
+	@echo "... speedimu_generate_messages_lisp"
+	@echo "... speedimu_generate_messages_eus"
+	@echo "... install/local"
+	@echo "... speedimu_gencpp"
+	@echo "... speedimu_generate_messages_cpp"
 	@echo "... list_install_components"
 	@echo "... roscpp_generate_messages_py"
 	@echo "... roscpp_generate_messages_eus"
@@ -452,15 +639,20 @@ help:
 	@echo "... rosgraph_msgs_generate_messages_cpp"
 	@echo "... speedimu_node"
 	@echo "... std_msgs_generate_messages_lisp"
+	@echo "... speedimu_generate_messages_nodejs"
 	@echo "... roscpp_generate_messages_cpp"
-	@echo "... install"
-	@echo "... rosgraph_msgs_generate_messages_eus"
+	@echo "... speedimu_genlisp"
 	@echo "... rosgraph_msgs_generate_messages_lisp"
 	@echo "... std_msgs_generate_messages_cpp"
+	@echo "... install"
+	@echo "... _speedimu_generate_messages_check_deps_imuspeed"
+	@echo "... rosgraph_msgs_generate_messages_eus"
+	@echo "... speedimu_generate_messages"
 	@echo "... rosgraph_msgs_generate_messages_nodejs"
 	@echo "... rosgraph_msgs_generate_messages_py"
 	@echo "... std_msgs_generate_messages_eus"
 	@echo "... std_msgs_generate_messages_nodejs"
+	@echo "... speedimu_geneus"
 	@echo "... roscpp_generate_messages_nodejs"
 	@echo "... std_msgs_generate_messages_py"
 	@echo "... src/speedimu_node.o"

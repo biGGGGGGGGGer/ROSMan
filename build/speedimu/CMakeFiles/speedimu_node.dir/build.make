@@ -98,6 +98,7 @@ speedimu_node_EXTERNAL_OBJECTS =
 /home/iner/catkin_ws/devel/lib/speedimu/speedimu_node: /usr/lib/aarch64-linux-gnu/liblog4cxx.so
 /home/iner/catkin_ws/devel/lib/speedimu/speedimu_node: /usr/lib/aarch64-linux-gnu/libboost_regex.so
 /home/iner/catkin_ws/devel/lib/speedimu/speedimu_node: /opt/ros/melodic/lib/libxmlrpcpp.so
+/home/iner/catkin_ws/devel/lib/speedimu/speedimu_node: /opt/ros/melodic/lib/libserial.so
 /home/iner/catkin_ws/devel/lib/speedimu/speedimu_node: /opt/ros/melodic/lib/libroscpp_serialization.so
 /home/iner/catkin_ws/devel/lib/speedimu/speedimu_node: /opt/ros/melodic/lib/librostime.so
 /home/iner/catkin_ws/devel/lib/speedimu/speedimu_node: /opt/ros/melodic/lib/libcpp_common.so
