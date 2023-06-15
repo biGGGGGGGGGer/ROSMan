@@ -18,8 +18,6 @@ uint8_t temp[17];
 
 //创建串口对象 
 serial::Serial ser;
-//创建获取的距离信息保存的数据变量
-std_msgs::Float64 distance;
 
 int main (int argc, char** argv)
 {
@@ -30,13 +28,13 @@ int main (int argc, char** argv)
     ros::Publisher imu_pub=nh.advertise<std_msgs::Float64>("imu",1000);
     ros::Publisher speed_pub=nh.advertise<std_msgs::Float64>("speed",1000);
 
-    uint16_t CRC16;
+    uint16_t CRC16 = 0x0000;
 
     //打开串口设备
     try
     {
         ser.setPort("/dev/ttyUSB0");
-        ser.setBaudrate(9600);
+        ser.setBaudrate(115200);
         serial::Timeout to = serial::Timeout::simpleTimeout(1000);
         ser.setTimeout(to);
         ser.open();
@@ -46,7 +44,6 @@ int main (int argc, char** argv)
         ROS_ERROR_STREAM("Unable to open port ");
         return -1;
     }
- 
     if(ser.isOpen())
     {
         ROS_INFO_STREAM("Serial Port open");
@@ -55,8 +52,6 @@ int main (int argc, char** argv)
     {
        return -1;
     }
-    //设置运行频率
-    ros::Rate loop_rate(50);
     while(ros::ok())
     {
         //读取串口数据
@@ -66,16 +61,15 @@ int main (int argc, char** argv)
             //buffer长度可以根据自己的通信协议来修改，可以改大一点如100
             uint8_t buffer[300];
             n = ser.read(buffer,n);
-            for(int j = 0;j < 17;j++)
+            for(int p = 0;p < 17;p++)
             {
-                temp[j] = buffer[j];
+                temp[p] = buffer[p];
             }
-
             if(buffer[0] == 0xA5 && buffer[1] == 0x5A)
             {
                 // CRC校验
-                CRC16 += buffer[17];
-                CRC16 << 8;
+                CRC16 = buffer[17];
+                CRC16 <<= 8;
                 CRC16 += buffer[18];
                 if(CRC16 == CRC16_Check(temp,21))
                 {
@@ -93,32 +87,27 @@ int main (int argc, char** argv)
                         {
                             for(int p = 8;p < 12;p++)
                             {
-                                pitch.datas[p-8] = buffer[p];
+                                roll.datas[p-8] = buffer[p];
                             }
                         }
                         if(n == 2)
                         {
                             for(int p = 13;p < 17;p++)
                             {
-                                pitch.datas[p-13] = buffer[p];
+                                yaw.datas[p-13] = buffer[p];
+                                printf("yaw.datas[%d] = %x  \n",p,yaw.datas[p]);
                             }
                         }
                     }
                 }
-
-
-
-
             }
+            printf("pitch = %.3f   roll = %.3f    yaw = %.3f\n",pitch.data,roll.data,yaw.data);
         }
-
-
     }
 
     // 发布std_msgs::Float64类型的距离数据
     // imu_pub.publish(imu);
             
-    loop_rate.sleep();
 }
 
 uint16_t CRC16_Check(const uint8_t *data,uint8_t len)
