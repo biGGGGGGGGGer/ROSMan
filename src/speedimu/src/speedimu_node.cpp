@@ -1,6 +1,7 @@
 #include <ros/ros.h>
 #include <serial/serial.h>
-#include <std_msgs/Float64.h>
+#include <std_msgs/Float32.h>
+#include <speedimu/imuspeed.h>
 #include<iostream>
 
 uint16_t CRC16_Check(const uint8_t *data,uint8_t len);
@@ -12,11 +13,11 @@ typedef union
 }imudata;
 
 imudata pitch;
-imudata roll;
 imudata yaw;
-uint8_t temp[17];
+imudata roll;
+uint8_t temp[17]; 
 
-//创建串口对象 
+//创建串口对象
 serial::Serial ser;
 
 int main (int argc, char** argv)
@@ -25,10 +26,17 @@ int main (int argc, char** argv)
     ros::init(argc, argv, "speedimu_node");
     ros::NodeHandle nh;
     //创建发布者
-    ros::Publisher imu_pub=nh.advertise<std_msgs::Float64>("imu",1000);
-    ros::Publisher speed_pub=nh.advertise<std_msgs::Float64>("speed",1000);
+    ros::Publisher pitch_pub=nh.advertise<std_msgs::Float32>("pitch",1000);
+    ros::Publisher yaw_pub=nh.advertise<std_msgs::Float32>("yaw",1000);
+    ros::Publisher roll_pub=nh.advertise<std_msgs::Float32>("roll",1000);
 
-    uint16_t CRC16 = 0x0000;
+    ros::Publisher speed_pub=nh.advertise<std_msgs::Float32>("speed",1000);
+
+    uint16_t CRC16 = 0x0000;   
+
+    speedimu::imuspeed pitchIMU;
+    speedimu::imuspeed yawIMU;
+    speedimu::imuspeed rollIMU;
 
     //打开串口设备
     try
@@ -58,9 +66,13 @@ int main (int argc, char** argv)
         size_t n=ser.available();
         if(n!=0)
         {
-            //buffer长度可以根据自己的通信协议来修改，可以改大一点如100
             uint8_t buffer[300];
             n = ser.read(buffer,n);
+            for(int i=0;i<n;i++)
+	        {
+	     	    std::cout<<std::hex<<(buffer[i]&0xff)<<" ";
+	        }
+            printf("\n");
             for(int p = 0;p < 17;p++)
             {
                 temp[p] = buffer[p];
@@ -87,27 +99,28 @@ int main (int argc, char** argv)
                         {
                             for(int p = 8;p < 12;p++)
                             {
-                                roll.datas[p-8] = buffer[p];
+                                yaw.datas[p-8] = buffer[p];
                             }
                         }
                         if(n == 2)
                         {
                             for(int p = 13;p < 17;p++)
                             {
-                                yaw.datas[p-13] = buffer[p];
-                                printf("yaw.datas[%d] = %x  \n",p,yaw.datas[p]);
+                                roll.datas[p-13] = buffer[p];
                             }
                         }
                     }
                 }
             }
-            printf("pitch = %.3f   roll = %.3f    yaw = %.3f\n",pitch.data,roll.data,yaw.data);
+            pitchIMU.a = pitch.data;
+            rollIMU.a = roll.data;
+            yawIMU.a = yaw.data;
+            printf("pitch = %.3f     roll = %.3f    yaw = %.3f\n",pitch.data,roll.data,yaw.data);
+            pitch_pub.publish(pitchIMU);
+            yaw_pub.publish(yawIMU);
+            roll_pub.publish(rollIMU);
         }
-    }
-
-    // 发布std_msgs::Float64类型的距离数据
-    // imu_pub.publish(imu);
-            
+    }            
 }
 
 uint16_t CRC16_Check(const uint8_t *data,uint8_t len)

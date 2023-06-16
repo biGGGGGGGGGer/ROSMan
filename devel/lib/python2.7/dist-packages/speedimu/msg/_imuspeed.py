@@ -8,14 +8,16 @@ import struct
 
 
 class imuspeed(genpy.Message):
-  _md5sum = "5cdafae0cb68983e8e8825adb0b735f2"
+  _md5sum = "3a9a8ccf1ae2be3477477819c0d93b4e"
   _type = "speedimu/imuspeed"
   _has_header = False  # flag to mark the presence of a Header object
-  _full_text = """float32 pitch
-float32 roll
-float32 yaw"""
-  __slots__ = ['pitch','roll','yaw']
-  _slot_types = ['float32','float32','float32']
+  _full_text = """float32 a
+
+
+
+"""
+  __slots__ = ['a']
+  _slot_types = ['float32']
 
   def __init__(self, *args, **kwds):
     """
@@ -25,7 +27,7 @@ float32 yaw"""
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       pitch,roll,yaw
+       a
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -34,16 +36,10 @@ float32 yaw"""
     if args or kwds:
       super(imuspeed, self).__init__(*args, **kwds)
       # message fields cannot be None, assign default values for those that are
-      if self.pitch is None:
-        self.pitch = 0.
-      if self.roll is None:
-        self.roll = 0.
-      if self.yaw is None:
-        self.yaw = 0.
+      if self.a is None:
+        self.a = 0.
     else:
-      self.pitch = 0.
-      self.roll = 0.
-      self.yaw = 0.
+      self.a = 0.
 
   def _get_types(self):
     """
@@ -57,8 +53,8 @@ float32 yaw"""
     :param buff: buffer, ``StringIO``
     """
     try:
-      _x = self
-      buff.write(_get_struct_3f().pack(_x.pitch, _x.roll, _x.yaw))
+      _x = self.a
+      buff.write(_get_struct_f().pack(_x))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -71,10 +67,9 @@ float32 yaw"""
       codecs.lookup_error("rosmsg").msg_type = self._type
     try:
       end = 0
-      _x = self
       start = end
-      end += 12
-      (_x.pitch, _x.roll, _x.yaw,) = _get_struct_3f().unpack(str[start:end])
+      end += 4
+      (self.a,) = _get_struct_f().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -87,8 +82,8 @@ float32 yaw"""
     :param numpy: numpy python module
     """
     try:
-      _x = self
-      buff.write(_get_struct_3f().pack(_x.pitch, _x.roll, _x.yaw))
+      _x = self.a
+      buff.write(_get_struct_f().pack(_x))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -102,10 +97,9 @@ float32 yaw"""
       codecs.lookup_error("rosmsg").msg_type = self._type
     try:
       end = 0
-      _x = self
       start = end
-      end += 12
-      (_x.pitch, _x.roll, _x.yaw,) = _get_struct_3f().unpack(str[start:end])
+      end += 4
+      (self.a,) = _get_struct_f().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -114,9 +108,9 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
-_struct_3f = None
-def _get_struct_3f():
-    global _struct_3f
-    if _struct_3f is None:
-        _struct_3f = struct.Struct("<3f")
-    return _struct_3f
+_struct_f = None
+def _get_struct_f():
+    global _struct_f
+    if _struct_f is None:
+        _struct_f = struct.Struct("<f")
+    return _struct_f

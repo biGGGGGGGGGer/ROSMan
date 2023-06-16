@@ -24,27 +24,17 @@ struct imuspeed_
   typedef imuspeed_<ContainerAllocator> Type;
 
   imuspeed_()
-    : pitch(0.0)
-    , roll(0.0)
-    , yaw(0.0)  {
+    : a(0.0)  {
     }
   imuspeed_(const ContainerAllocator& _alloc)
-    : pitch(0.0)
-    , roll(0.0)
-    , yaw(0.0)  {
+    : a(0.0)  {
   (void)_alloc;
     }
 
 
 
-   typedef float _pitch_type;
-  _pitch_type pitch;
-
-   typedef float _roll_type;
-  _roll_type roll;
-
-   typedef float _yaw_type;
-  _yaw_type yaw;
+   typedef float _a_type;
+  _a_type a;
 
 
 
@@ -75,9 +65,7 @@ return s;
 template<typename ContainerAllocator1, typename ContainerAllocator2>
 bool operator==(const ::speedimu::imuspeed_<ContainerAllocator1> & lhs, const ::speedimu::imuspeed_<ContainerAllocator2> & rhs)
 {
-  return lhs.pitch == rhs.pitch &&
-    lhs.roll == rhs.roll &&
-    lhs.yaw == rhs.yaw;
+  return lhs.a == rhs.a;
 }
 
 template<typename ContainerAllocator1, typename ContainerAllocator2>
@@ -134,12 +122,12 @@ struct MD5Sum< ::speedimu::imuspeed_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "5cdafae0cb68983e8e8825adb0b735f2";
+    return "3a9a8ccf1ae2be3477477819c0d93b4e";
   }
 
   static const char* value(const ::speedimu::imuspeed_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x5cdafae0cb68983eULL;
-  static const uint64_t static_value2 = 0x8e8825adb0b735f2ULL;
+  static const uint64_t static_value1 = 0x3a9a8ccf1ae2be34ULL;
+  static const uint64_t static_value2 = 0x77477819c0d93b4eULL;
 };
 
 template<class ContainerAllocator>
@@ -158,9 +146,10 @@ struct Definition< ::speedimu::imuspeed_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "float32 pitch\n"
-"float32 roll\n"
-"float32 yaw\n"
+    return "float32 a\n"
+"\n"
+"\n"
+"\n"
 ;
   }
 
@@ -179,9 +168,7 @@ namespace serialization
   {
     template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
     {
-      stream.next(m.pitch);
-      stream.next(m.roll);
-      stream.next(m.yaw);
+      stream.next(m.a);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -200,12 +187,8 @@ struct Printer< ::speedimu::imuspeed_<ContainerAllocator> >
 {
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::speedimu::imuspeed_<ContainerAllocator>& v)
   {
-    s << indent << "pitch: ";
-    Printer<float>::stream(s, indent + "  ", v.pitch);
-    s << indent << "roll: ";
-    Printer<float>::stream(s, indent + "  ", v.roll);
-    s << indent << "yaw: ";
-    Printer<float>::stream(s, indent + "  ", v.yaw);
+    s << indent << "a: ";
+    Printer<float>::stream(s, indent + "  ", v.a);
   }
 };
 

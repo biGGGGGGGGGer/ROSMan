@@ -18,40 +18,22 @@ class imuspeed {
   constructor(initObj={}) {
     if (initObj === null) {
       // initObj === null is a special case for deserialization where we don't initialize fields
-      this.pitch = null;
-      this.roll = null;
-      this.yaw = null;
+      this.a = null;
     }
     else {
-      if (initObj.hasOwnProperty('pitch')) {
-        this.pitch = initObj.pitch
+      if (initObj.hasOwnProperty('a')) {
+        this.a = initObj.a
       }
       else {
-        this.pitch = 0.0;
-      }
-      if (initObj.hasOwnProperty('roll')) {
-        this.roll = initObj.roll
-      }
-      else {
-        this.roll = 0.0;
-      }
-      if (initObj.hasOwnProperty('yaw')) {
-        this.yaw = initObj.yaw
-      }
-      else {
-        this.yaw = 0.0;
+        this.a = 0.0;
       }
     }
   }
 
   static serialize(obj, buffer, bufferOffset) {
     // Serializes a message object of type imuspeed
-    // Serialize message field [pitch]
-    bufferOffset = _serializer.float32(obj.pitch, buffer, bufferOffset);
-    // Serialize message field [roll]
-    bufferOffset = _serializer.float32(obj.roll, buffer, bufferOffset);
-    // Serialize message field [yaw]
-    bufferOffset = _serializer.float32(obj.yaw, buffer, bufferOffset);
+    // Serialize message field [a]
+    bufferOffset = _serializer.float32(obj.a, buffer, bufferOffset);
     return bufferOffset;
   }
 
@@ -59,17 +41,13 @@ class imuspeed {
     //deserializes a message object of type imuspeed
     let len;
     let data = new imuspeed(null);
-    // Deserialize message field [pitch]
-    data.pitch = _deserializer.float32(buffer, bufferOffset);
-    // Deserialize message field [roll]
-    data.roll = _deserializer.float32(buffer, bufferOffset);
-    // Deserialize message field [yaw]
-    data.yaw = _deserializer.float32(buffer, bufferOffset);
+    // Deserialize message field [a]
+    data.a = _deserializer.float32(buffer, bufferOffset);
     return data;
   }
 
   static getMessageSize(object) {
-    return 12;
+    return 4;
   }
 
   static datatype() {
@@ -79,15 +57,17 @@ class imuspeed {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '5cdafae0cb68983e8e8825adb0b735f2';
+    return '3a9a8ccf1ae2be3477477819c0d93b4e';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
-    float32 pitch
-    float32 roll
-    float32 yaw
+    float32 a
+    
+    
+    
+    
     `;
   }
 
@@ -97,25 +77,11 @@ class imuspeed {
       msg = {};
     }
     const resolved = new imuspeed(null);
-    if (msg.pitch !== undefined) {
-      resolved.pitch = msg.pitch;
+    if (msg.a !== undefined) {
+      resolved.a = msg.a;
     }
     else {
-      resolved.pitch = 0.0
-    }
-
-    if (msg.roll !== undefined) {
-      resolved.roll = msg.roll;
-    }
-    else {
-      resolved.roll = 0.0
-    }
-
-    if (msg.yaw !== undefined) {
-      resolved.yaw = msg.yaw;
-    }
-    else {
-      resolved.yaw = 0.0
+      resolved.a = 0.0
     }
 
     return resolved;
