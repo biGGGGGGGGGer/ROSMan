@@ -454,12 +454,13 @@ void OLED_ShowPicture(u8 x,u8 y,u8 sizex,u8 sizey,u8 BMP[],u8 mode)
  * size1 :  字体大小	 		
  * mode  :  0,反色显示;1,正常显示
  * @作 者 :  Guard_Byte
- ***************************************************************/
+ **************************************************************
+ */
 void OLED_ShowFNum(u8 x,u8 y,float Fnum,u8 size1,u8 mode)
 {
-	  uint8_t Data[]= " ";                             //创建目标数组，用来存放转换后的字符数据 
+	uint8_t Data[]= " ";                             //创建目标数组，用来存放转换后的字符数据 
     sprintf(Data,"%.2f",Fnum);                       //保留小数点后3位小数，打印到Data数组中
-	  OLED_ShowString(x,y,Data,size1,mode);            //调用OLED字符串显示函数，在OLED屏上显示
+	OLED_ShowString(x,y,Data,size1,mode);            //调用OLED字符串显示函数，在OLED屏上显示
 }
 
 void OLED_Init(void)

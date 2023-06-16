@@ -4,8 +4,8 @@ extern float pitch,roll,yaw; 		//欧拉角
 
 typedef union
 {
-		float a;
-	  uint8_t data[4];
+	float a;
+	uint8_t data[4];
 }data_union;
 
  /**
@@ -228,61 +228,66 @@ uint16_t CRC16_Check(const uint8_t *data,uint8_t len)
 }
 
 /*
-		cmd是命令字节
-		参考：https://blog.csdn.net/XHL9434826546/article/details/126097374
+	cmd是命令字节
+	参考：https://blog.csdn.net/XHL9434826546/article/details/126097374
  */
 void pack_send_data(uint8_t cmd)
 {
-		uint8_t buf[300],i = 0,cnt = 0;
-		uint16_t crc16;
+	uint8_t buf[300],i = 0,cnt = 0;
+	uint16_t crc16;
 	
 /*
-		打包IMU数据
-		用结构体进行数据拆分。
-		将数据组成一个datas（数据包括pitch、yaw、roll）
+	打包IMU数据
+	用结构体进行数据拆分。
+	将数据组成一个datas（数据包括pitch、yaw、roll）
  */
-		uint8_t ImuData[12];
-		uint8_t _num = 0;	
-		data_union _pitch;
-	  _pitch.a = pitch;
-	  ImuData[_num++] = _pitch.data[0];
-	  ImuData[_num++] = _pitch.data[1];
-	  ImuData[_num++] = _pitch.data[2];
-	  ImuData[_num++] = _pitch.data[3];
-		data_union _yaw;
-		_yaw.a = yaw;
-		ImuData[_num++] = _yaw.data[0];
-	  ImuData[_num++] = _yaw.data[1];
-	  ImuData[_num++] = _yaw.data[2];
-	  ImuData[_num++] = _yaw.data[3];
-		data_union _roll;
-	  _roll.a = roll;
-		ImuData[_num++] = _roll.data[0];
-	  ImuData[_num++] = _roll.data[1];
-	  ImuData[_num++] = _roll.data[2];
-	  ImuData[_num++] = _roll.data[3];
+	uint8_t ImuData[12];
+	uint8_t _num = 0;	
+	data_union _pitch;
+	_pitch.a = pitch;
+	ImuData[_num++] = _pitch.data[0];
+	ImuData[_num++] = _pitch.data[1];
+	ImuData[_num++] = _pitch.data[2];
+	ImuData[_num++] = _pitch.data[3];
+
+	data_union _yaw;
+	_yaw.a = yaw;
+	ImuData[_num++] = _yaw.data[0];
+	ImuData[_num++] = _yaw.data[1];
+	ImuData[_num++] = _yaw.data[2];
+	ImuData[_num++] = _yaw.data[3];
+
+	data_union _roll;
+	_roll.a = roll;
+	ImuData[_num++] = _roll.data[0];
+	ImuData[_num++] = _roll.data[1];
+	ImuData[_num++] = _roll.data[2];
+	ImuData[_num++] = _roll.data[3];
 		
 /*
-		打包底盘运动状态
-		
+	打包底盘运动状态
  */
 
 		/*
-				打包数据帧
+			打包数据帧
 		 */
 		buf[cnt++] = 0xA5;
 		buf[cnt++] = 0x5A;
+
 		for(int j = 0;j < cmd;j++)
 		{
 				buf[cnt++] = j;
+				i = 0;
 				do
 				{
-						buf[cnt++] = ImuData[j*4 + (i++)];
-				}while(i < (_num - (2 - j)*4));
+					buf[cnt++] = ImuData[j*4 + (i++)];
+				}while(i < 4);
 		}
+
 		crc16 = CRC16_Check(buf,cnt+4);
 		buf[cnt++] = crc16>>8;
 		buf[cnt++] = crc16&0xFF;
+
 		buf[cnt++] = 0xFF;
 		
 		/*

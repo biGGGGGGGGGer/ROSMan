@@ -14,7 +14,7 @@
 #include "bsp_resetmcu.h"
 
 void ScreenDisplay(float pitch,float roll,float yaw,int PS2_LX,int PS2_RX,int PS2_RY,int PS2_KEY);
-void judge_Dir(void);
+void judge_Dir_Speed(void);
 void Give_PWM(void);
 
 int cnt = 0;
@@ -45,8 +45,8 @@ int main(void)
 	Debug_USART_Config();
 	OLED_Init();					//初始化OLED
 	PS2_Init();  					//=====ps2驱动端口初始化
-	PS2_SetInit(); 				//=====ps2配置初始化,配置“红绿灯模式”，并选择是否可以修改
-	TIM_Mode_Config();    // 基本定时器中断：串口发送数据；更新OLED。
+	PS2_SetInit(); 					//=====ps2配置初始化,配置“红绿灯模式”，并选择是否可以修改
+	TIM_Mode_Config();    			// 基本定时器中断：串口发送数据；更新OLED。
 	MPU_Init();						//初始化MPU6050
 	while(mpu_dmp_init() !=0)
 	{
@@ -56,9 +56,9 @@ int main(void)
 			
 	while(1)
 	{
- 			PS2_Receive();
-			ScreenDisplay(pitch,roll,yaw,PS2_LX,PS2_RX,PS2_RY,PS2_KEY);		
-			judge_Dir();
+		PS2_Receive();
+		ScreenDisplay(pitch,roll,yaw,PS2_LX,PS2_RX,PS2_RY,PS2_KEY);			
+		judge_Dir_Speed();
 	}
 }
 
@@ -98,7 +98,7 @@ void ScreenDisplay(float pitch,float roll,float yaw,int PS2_LX,int PS2_RX,int PS
 		SetBits     使D轮向前转动
 
    */
-void judge_Dir(void)
+void judge_Dir_Speed(void)
 {
 		// 前进
 		if(PS2_KEY == 5)

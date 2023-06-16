@@ -1,6 +1,7 @@
 #include "bsp_resetmcu.h"
 #include "oled.h"
 #include "usart.h"
+#include "pstwo.h"
 
 static void TIMx_NVIC_Configuration(void)
 {
@@ -26,7 +27,7 @@ void TIM_Mode_Config(void)
 
 		/* 累计 TIM_Period 个后产生一个更新或者中断 */
 		//当定时器从 0 计数到 4999，即为 5000 次，为一个定时周期
-		TIM_TimeBaseStructure.TIM_Period = 5000-1;
+		TIM_TimeBaseStructure.TIM_Period = 2000-1;
 
 		//定时器时钟源 TIMxCLK = 2 * PCLK1
 		// PCLK1 = HCLK / 4
@@ -45,12 +46,13 @@ void TIM_Mode_Config(void)
 		TIM_Cmd(BASIC_TIM, ENABLE);
 }
 
+extern int PS2_LX,PS2_LY,PS2_RX,PS2_RY,PS2_KEY;     
+
 void BASIC_TIM_IRQHandler(void)
 {
 	if(TIM_GetITStatus( BASIC_TIM, TIM_IT_Update)!= RESET) 
 	{	
 		TIM_ClearITPendingBit(BASIC_TIM , TIM_IT_Update);
-		OLED_Refresh();            // 更新OLED。
 		pack_send_data(3);         // 串口发送数据
 	}
 }

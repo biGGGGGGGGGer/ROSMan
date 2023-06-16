@@ -40,3 +40,5 @@
 ..\obj\bsp_resetmcu.o: H:\keil5\ARM\ARMCC\Bin\..\include\stdlib.h
 ..\obj\bsp_resetmcu.o: ..\SYSTEM\usart\usart.h
 ..\obj\bsp_resetmcu.o: H:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\bsp_resetmcu.o: ..\HARDWARE\PS2\pstwo.h
+..\obj\bsp_resetmcu.o: ..\SYSTEM\delay\delay.h
