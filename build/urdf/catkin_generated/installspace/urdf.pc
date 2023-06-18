@@ -1,0 +1,8 @@
+prefix=/home/iner/catkin_ws/install
+
+Name: urdf
+Description: Description of urdf
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

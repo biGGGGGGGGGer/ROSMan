@@ -473,6 +473,12 @@ UBUNTU:BOOL=TRUE
 //LSB Distrib - codename tag
 UBUNTU_BIONIC:BOOL=TRUE
 
+//Value Computed by CMake
+URDF_BINARY_DIR:STATIC=/home/iner/catkin_ws/build/URDF
+
+//Value Computed by CMake
+URDF_SOURCE_DIR:STATIC=/home/iner/catkin_ws/src/URDF
+
 //Path to a file.
 X11_ICE_INCLUDE_PATH:PATH=/usr/include
 
@@ -677,6 +683,9 @@ actionlib_DIR:PATH=/opt/ros/melodic/share/actionlib/cmake
 //The directory containing a CMake configuration file for actionlib_msgs.
 actionlib_msgs_DIR:PATH=/opt/ros/melodic/share/actionlib_msgs/cmake
 
+//The directory containing a CMake configuration file for amcl.
+amcl_DIR:PATH=/opt/ros/melodic/share/amcl/cmake
+
 //Value Computed by CMake
 astra_camera_BINARY_DIR:STATIC=/home/iner/catkin_ws/build/ros_astra_camera
 
@@ -734,6 +743,12 @@ darknet_ros_msgs_SOURCE_DIR:STATIC=/home/iner/catkin_ws/src/darknet_ros/darknet_
 //Dependencies for the target
 darknet_ros_nodelet_LIB_DEPENDS:STATIC=general;/usr/lib/aarch64-linux-gnu/libSM.so;general;/usr/lib/aarch64-linux-gnu/libICE.so;general;/usr/lib/aarch64-linux-gnu/libX11.so;general;/usr/lib/aarch64-linux-gnu/libXext.so;general;/usr/local/cuda/lib64/libcudart_static.a;general;-lpthread;general;dl;general;/usr/lib/aarch64-linux-gnu/librt.so;general;darknet_ros_lib;
 
+//The directory containing a CMake configuration file for diagnostic_msgs.
+diagnostic_msgs_DIR:PATH=/opt/ros/melodic/share/diagnostic_msgs/cmake
+
+//The directory containing a CMake configuration file for diagnostic_updater.
+diagnostic_updater_DIR:PATH=/opt/ros/melodic/share/diagnostic_updater/cmake
+
 //The directory containing a CMake configuration file for dynamic_reconfigure.
 dynamic_reconfigure_DIR:PATH=/opt/ros/melodic/share/dynamic_reconfigure/cmake
 
@@ -757,6 +772,9 @@ genpy_DIR:PATH=/opt/ros/melodic/share/genpy/cmake
 
 //The directory containing a CMake configuration file for geometry_msgs.
 geometry_msgs_DIR:PATH=/opt/ros/melodic/share/geometry_msgs/cmake
+
+//The directory containing a CMake configuration file for gmapping.
+gmapping_DIR:PATH=/opt/ros/melodic/share/gmapping/cmake
 
 //Value Computed by CMake
 gmock_BINARY_DIR:STATIC=/home/iner/catkin_ws/build/gtest/googlemock
@@ -814,7 +832,10 @@ image_geometry_DIR:PATH=/opt/ros/melodic/share/image_geometry/cmake
 image_transport_DIR:PATH=/opt/ros/melodic/share/image_transport/cmake
 
 //Path to a library.
-lib:FILEPATH=/opt/ros/melodic/lib/libcamera_calibration_parsers.so
+lib:FILEPATH=/opt/ros/melodic/lib/libmap_server_image_loader.so
+
+//The directory containing a CMake configuration file for map_server.
+map_server_DIR:PATH=/opt/ros/melodic/share/map_server/cmake
 
 //The directory containing a CMake configuration file for message_filters.
 message_filters_DIR:PATH=/opt/ros/melodic/share/message_filters/cmake
@@ -825,11 +846,32 @@ message_generation_DIR:PATH=/opt/ros/melodic/share/message_generation/cmake
 //The directory containing a CMake configuration file for message_runtime.
 message_runtime_DIR:PATH=/opt/ros/melodic/share/message_runtime/cmake
 
+//The directory containing a CMake configuration file for move_base.
+move_base_DIR:PATH=/opt/ros/melodic/share/move_base/cmake
+
+//The directory containing a CMake configuration file for move_base_msgs.
+move_base_msgs_DIR:PATH=/opt/ros/melodic/share/move_base_msgs/cmake
+
+//Value Computed by CMake
+nav_BINARY_DIR:STATIC=/home/iner/catkin_ws/build/nav
+
+//Value Computed by CMake
+nav_SOURCE_DIR:STATIC=/home/iner/catkin_ws/src/nav
+
+//The directory containing a CMake configuration file for nav_msgs.
+nav_msgs_DIR:PATH=/opt/ros/melodic/share/nav_msgs/cmake
+
 //The directory containing a CMake configuration file for nodelet.
 nodelet_DIR:PATH=/opt/ros/melodic/share/nodelet/cmake
 
 //The directory containing a CMake configuration file for pluginlib.
 pluginlib_DIR:PATH=/opt/ros/melodic/share/pluginlib/cmake
+
+//The directory containing a CMake configuration file for rosbag.
+rosbag_DIR:PATH=/opt/ros/melodic/share/rosbag/cmake
+
+//The directory containing a CMake configuration file for rosbag_storage.
+rosbag_storage_DIR:PATH=/opt/ros/melodic/share/rosbag_storage/cmake
 
 //The directory containing a CMake configuration file for rosconsole.
 rosconsole_DIR:PATH=/opt/ros/melodic/share/rosconsole/cmake
@@ -851,6 +893,9 @@ rosgraph_msgs_DIR:PATH=/opt/ros/melodic/share/rosgraph_msgs/cmake
 
 //The directory containing a CMake configuration file for roslib.
 roslib_DIR:PATH=/opt/ros/melodic/share/roslib/cmake
+
+//The directory containing a CMake configuration file for roslz4.
+roslz4_DIR:PATH=/opt/ros/melodic/share/roslz4/cmake
 
 //The directory containing a CMake configuration file for rospack.
 rospack_DIR:PATH=/opt/ros/melodic/share/rospack/cmake
@@ -902,6 +947,15 @@ tf2_py_DIR:PATH=/opt/ros/melodic/share/tf2_py/cmake
 
 //The directory containing a CMake configuration file for tf2_ros.
 tf2_ros_DIR:PATH=/opt/ros/melodic/share/tf2_ros/cmake
+
+//The directory containing a CMake configuration file for topic_tools.
+topic_tools_DIR:PATH=/opt/ros/melodic/share/topic_tools/cmake
+
+//Value Computed by CMake
+urdf_BINARY_DIR:STATIC=/home/iner/catkin_ws/build/urdf
+
+//Value Computed by CMake
+urdf_SOURCE_DIR:STATIC=/home/iner/catkin_ws/src/urdf
 
 //The directory containing a CMake configuration file for xmlrpcpp.
 xmlrpcpp_DIR:PATH=/opt/ros/melodic/share/xmlrpcpp/cmake
@@ -1054,7 +1108,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=9
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=11
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

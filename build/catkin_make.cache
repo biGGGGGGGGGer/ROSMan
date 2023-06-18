@@ -1,2 +1,2 @@
-darknet_ros/darknet_ros:darknet_ros/darknet_ros_msgs:ros_astra_camera:rplidar_ros:speedimu
+darknet_ros/darknet_ros:darknet_ros/darknet_ros_msgs:nav:ros_astra_camera:rplidar_ros:speedimu:urdf
 -DCATKIN_DEVEL_PREFIX=/home/iner/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/iner/catkin_ws/install -G Unix Makefiles

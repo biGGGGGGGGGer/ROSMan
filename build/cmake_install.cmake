@@ -136,6 +136,8 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/iner/catkin_ws/build/darknet_ros/darknet_ros/cmake_install.cmake")
   include("/home/iner/catkin_ws/build/rplidar_ros/cmake_install.cmake")
   include("/home/iner/catkin_ws/build/ros_astra_camera/cmake_install.cmake")
+  include("/home/iner/catkin_ws/build/urdf/cmake_install.cmake")
+  include("/home/iner/catkin_ws/build/nav/cmake_install.cmake")
 
 endif()
 
